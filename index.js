@@ -2,7 +2,6 @@ const http = require('http')
 const url = require('url')
 const crypto = require('crypto')
 const plugin = require('./plugins.js').xrp.Wix()
-
 const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -61,7 +60,6 @@ function base64url (buf) {
           additional_info: {}
         })
       } else {
-
         console.log(`Payment complete! ${transfer.from} bid ${transfer.amount}`);
       }
     })
