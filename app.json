@@ -1,0 +1,5 @@
+{
+  "name": "pay2play",
+  "description": "ILP based service for monetizing DoTA 2 games.",
+  "repository": "https://github.com/heroku/node-js-getting-started"
+}
