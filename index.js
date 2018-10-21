@@ -11,8 +11,6 @@ function base64url (buf) {
     .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
 }
 
-
-
     console.log(` 1. Connecting to an account to accept payments...`)
 
 
@@ -36,7 +34,7 @@ function base64url (buf) {
 
       // Handle incoming payments
     plugin.on('incoming_prepare', function (transfer) {
-      if (parseInt(transfer.amount) < 1000) {
+      if (parseInt(transfer.amount) < 4000000) {
         // Transfer amount is incorrect
         console.log(`    - Payment received for the wrong amount ` +
                                           `(${transfer.amount})... Rejected`)
