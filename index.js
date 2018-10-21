@@ -2,7 +2,16 @@ const http = require('http')
 const url = require('url')
 const crypto = require('crypto')
 const plugin = require('./plugins.js').xrp.Wix()
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000
 
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 const cost = 1000
 
@@ -34,7 +43,7 @@ function base64url (buf) {
 
       // Handle incoming payments
     plugin.on('incoming_prepare', function (transfer) {
-      if (parseInt(transfer.amount) < 4000000) {
+      if (parseInt(transfer.amount) < 4500000) {
         // Transfer amount is incorrect
         console.log(`    - Payment received for the wrong amount ` +
                                           `(${transfer.amount})... Rejected`)
